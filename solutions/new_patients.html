@@ -12,7 +12,77 @@
         <title>Привлечение пациентов</title>
 
 
-        {% include HeadScripts.mustache %}
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+                $(window).load(function() { // makes sure the whole site is loaded
+                    $('#status').fadeOut(); // will first fade out the loading animation
+                    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+                    $('body').delay(350).css({'overflow':'visible'});
+                })
+            //]]>
+        </script>
+                <style>
+                     body {
+          overflow: hidden;
+        }
+
+
+
+        #preloader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #fff;
+
+          z-index: 999999999999;
+
+        }
+
+        #status {
+          width: 200px;
+          height: 200px;
+          position: absolute;
+          left: 50%;
+
+          top: 50%;
+
+                        background-image: url(/img/status.gif);
+
+          background-repeat: no-repeat;
+          background-position: center;
+          margin: -100px 0 0 -100px;
+
+        }
+        </style>
+
+        <!-- Le fav and touch icons -->
+                <link rel="shortcut icon" href="/img/favicon.png" />
+
+        <!-- Bootstrap Core CSS -->
+                <link href="/css/bootstrap.min.css" rel="stylesheet" media="all">
+
+                <!-- Custom CSS -->
+                <!--link rel="stylesheet" href="/css/animsition.min.css"-->
+
+
+        <link href="/css/ekko-lightbox.css" rel="stylesheet">
+        <link href="/css/dark.css" rel="stylesheet">
+
+                <link href="/css/da.min.css" rel="stylesheet">
+
+                <!-- Custom Fonts -->
+
+                <script src="https://use.typekit.net/hqr6kui.js"></script>
+                <script>
+                    try {
+                        Typekit.load({
+                            async: true
+                        });
+                    } catch (e) {}
+                </script>
 
         <link rel="stylesheet" href="/css/linea_basic.css">
         <link rel="stylesheet" href="/css/animate.css">
@@ -396,7 +466,46 @@
         </section>
 
 
-         {module_contentholder,name="Modalcontact"}
+        <div class="modal text-center fade" tabindex="-1" role="dialog" aria-labelledby="modalcontact" aria-hidden="true" id="modalcontact" style="background-color: #fff;">
+                    <div class="col-md-6 col-md-offset-3">
+                        <br>
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">×</button>
+                            <h2><b>Обратная связь</b></h2>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <br>
+                            <br>
+                            <p>Свяжитесь с нами <!-- по телефону <b>{module_contentholder,name="phone"}</b> или -->через форму связи, чтобы уточнить информацию или решить любой возникший
+                                вопрос.
+                            </p>
+
+
+
+                            <!-- BEGIN Podio web form -->
+                            <script src="https://podio.com/webforms/14142468/949179.js"></script>
+                            <script type="text/javascript">
+                                _podioWebForm.render("949179")
+                            </script>
+                            <noscript>
+                                <a href="https://podio.com/webforms/14142468/949179" target="_blank">Пожалуйста, заполните форму</a>
+                            </noscript>
+
+                            <!-- END Podio web form -->
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn close" data-dismiss="modal">Закрыть</a>
+
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -404,12 +513,205 @@
 
         <!-- Footer -->
 
-        {module_contentholder,name="Footer"}
+        <footer id="footer" style="background-color: #fff">
+                    <div class="container">
+
+
+                        <div class="col-md-8 col-md-offset-2 text-center">
+
+                            <h3>Остались вопросы?</h3>
+                            <p>Позвоните нам: <b>{module_contentholder,name="phone"}</b> или напишите на <a href="mailto:hello@dentalagency.ru" target="_top">hello@dentalagency.ru</a>,
+                                чтобы уточнить необходимую информацию.</p>
+
+                            <hr style="width: 60%; margin-left: auto; margin-right: auto;">
+
+
+                            <!--a class="page-scroll" href="http://www.dentalagency.ru/">
+                                <img style="height: 32px; margin-left: auto; margin-right: auto;opacity: 0.6;" src="/img/logo@2x_da_new_simle.png" class="img-responsive">
+
+                            </a-->
+
+                            <ul class="list-inline text-center" style="margin-top: -8px;">
+                                <li>
+                                    <a href="https://www.facebook.com/dentalagency.ru/?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/stom_seminar/?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-instagram"></i></a>
+                                </li>
+                                <!--li>
+                                    <a href="https://www.youtube.com/channel/UCv9NJqHpCLuhSnQOeDdJ75Q?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-youtube"></i></a>
+                                </li-->
+
+                            </ul>
+                            <!--p class="copyright text-center" style="
+        font-family: &quot;proxima-nova&quot;,sans-serif;
+        font-size: 14px;
+        color: #202633;
+        "> © 2015-2016, Dental Agency.</p-->
+                            <!--span class="text-center" style="
+        font-family: &quot;proxima-nova&quot;,sans-serif; color: #999; font-size:16px; font-weight:500;">made at&nbsp;<a style="color: #000; font-weight:700;" href="http://responsivelab.ru/" target="blank">Responsive Lab</a></span-->
+                        </div>
+
+
+
+
+                    </div>
+                </footer>
 
         <!-- Footer Scripts -->
 
 
-        {% include FooterScripts.mustache %}
+        <!-- Стили -->
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+               <link rel="stylesheet" href="/fonts/icomoon_video/style.css">
+        <link rel="stylesheet" href="/css/pongstagr.am.css">
+
+
+
+
+                    <!-- Крутим страницу -->
+        <script>
+            $(document).ready(function() {
+                window.scrollTo(0, 0);
+            });
+        </script>
+
+
+
+
+
+                <!-- Plugin JavaScript -->
+                <script src="/js/jquery.easing.min.js"></script>
+
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="/js/bootstrap.min.js"></script>
+
+
+
+                <!-- Custom Theme JavaScript -->
+                <script src="/js/da.js"></script>
+
+        <script src="/js/ekko-lightbox.js"></script>
+                <script type="text/javascript">
+            $(document).ready(function($) {
+
+                // delegate calls to data-toggle="lightbox"
+                $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+                    event.preventDefault();
+                    return $(this).ekkoLightbox({
+                        always_show_close: true
+                    });
+                });
+
+            });
+        </script>
+
+        <!-- Навигация -->
+                <script>
+                    $(document).ready(function() {
+                        var sideslider = $('[data-toggle=collapse-side]');
+                        var sel = sideslider.attr('data-target');
+                        var sel2 = sideslider.attr('data-target-2');
+                        sideslider.click(function(event) {
+                            $(sel).toggleClass('in');
+                            $(sel2).toggleClass('out');
+                        });
+                    });
+                </script>
+        <script>
+        $(document).ready(function () {
+            var sideslider = $('[data-toggle=collapse-side]');
+                        var sel = sideslider.attr('data-target');
+                        var sel2 = sideslider.attr('data-target-2');
+                $(".navbar-nav li a").click(function(event) {
+                  $(sel).toggleClass('in');
+                            $(sel2).toggleClass('out');
+                });
+              });
+
+        </script>
+
+
+                <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+                <div id="fb-root"></div>
+                <script>
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=275910782435282";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
+
+        <script type="text/javascript">
+        	var trackcmp_email = '';
+        	var trackcmp = document.createElement("script");
+        	trackcmp.async = true;
+        	trackcmp.type = 'text/javascript';
+        	trackcmp.src = '//trackcmp.net/visit?actid=475079017&e='+encodeURIComponent(trackcmp_email)+'&r='+encodeURIComponent(document.referrer)+'&u='+encodeURIComponent(window.location.href);
+        	var trackcmp_s = document.getElementsByTagName("script");
+        	if (trackcmp_s.length) {
+        		trackcmp_s[0].parentNode.appendChild(trackcmp);
+        	} else {
+        		var trackcmp_h = document.getElementsByTagName("head");
+        		trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
+        	}
+        </script>
+
+
+
+
+                <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter33465513 = new Ya.Metrika({
+                            id:33465513,
+                            clickmap:true,
+                            trackLinks:true,
+                            accurateTrackBounce:true,
+                            webvisor:true,
+                            trackHash:true
+                        });
+                    } catch(e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/33465513" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+
+
+
+
+        <!--script>
+            document.getElementById("reg").onclick = function() {
+            woopra.track("clickreg", {
+                email: "{module_url,email}"
+
+            });
+        };
+        </script-->
 
 
 
