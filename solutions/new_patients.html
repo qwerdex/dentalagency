@@ -1,740 +1,648 @@
+---
+# Yeah, this should be .mustache
+# But this way we can gh-pages.
+---
 <!DOCTYPE html>
-<html lang="ru">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Маркетинговые решения для привлечения новых пациентов">
-        <meta name="author" content="">
-
-        <title>Привлечение пациентов</title>
-
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script src="/extras/mustache.js"></script>
-        <script src="/tom.js"></script>
-
-
-        <script type="text/javascript">
-            //<![CDATA[
-                $(window).load(function() { // makes sure the whole site is loaded
-                    $('#status').fadeOut(); // will first fade out the loading animation
-                    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                    $('body').delay(350).css({'overflow':'visible'});
-                })
-            //]]>
-        </script>
-                <style>
-                     body {
-          overflow: hidden;
-        }
+<html>
+  <head>
+    <title>{{ site.name }}</title>
+    <!-- jQuery Plugin -->
+    <!--script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script-->
 
 
 
-        #preloader {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: #fff;
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+          <script src="/extras/mustache.js"></script>
+          <script src="/tom.js"></script>
 
-          z-index: 999999999999;
+    <script src="/js/jquery.touchSwipe.js"></script>
 
-        }
-
-        #status {
-          width: 200px;
-          height: 200px;
-          position: absolute;
-          left: 50%;
-
-          top: 50%;
-
-                        background-image: url(/img/status.gif);
-
-          background-repeat: no-repeat;
-          background-position: center;
-          margin: -100px 0 0 -100px;
-
-        }
-        </style>
-
-        <!-- Le fav and touch icons -->
-                <link rel="shortcut icon" href="/img/favicon.png" />
-
-        <!-- Bootstrap Core CSS -->
-                <link href="/css/bootstrap.min.css" rel="stylesheet" media="all">
-
-                <!-- Custom CSS -->
-                <!--link rel="stylesheet" href="/css/animsition.min.css"-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.descr }}">
+    <meta name="author" content="">
 
 
-        <link href="/css/ekko-lightbox.css" rel="stylesheet">
-        <link href="/css/dark.css" rel="stylesheet">
-
-                <link href="/css/da.min.css" rel="stylesheet">
-
-                <!-- Custom Fonts -->
-
-                <script src="https://use.typekit.net/hqr6kui.js"></script>
-                <script>
-                    try {
-                        Typekit.load({
-                            async: true
-                        });
-                    } catch (e) {}
-                </script>
-
-        <link rel="stylesheet" href="/css/linea_basic.css">
-        <link rel="stylesheet" href="/css/animate.css">
-
-        <style>
 
 
-             .intro {
-                text-align: left !important;
-                color: #000 !important;
-                background: url(/img/da_sol_back_new_patients.jpg) no-repeat bottom center scroll !important;
-                -webkit-background-size: cover !important;
-                -moz-background-size: cover !important;
-                background-size: cover !important;
-                -o-background-size: cover !important;
-            }
+
+    <script type="text/javascript">
+        //<![CDATA[
+            $(window).load(function() { // makes sure the whole site is loaded
+                $('#status').fadeOut(); // will first fade out the loading animation
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+                $('body').delay(350).css({'overflow':'visible'});
+            })
+        //]]>
+    </script>
+            <style>
+                 body {
+      overflow: hidden;
+    }
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+
+      z-index: 999999999999;
+
+    }
+    #status {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+                    background-image: url(/img/status.gif);
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: -100px 0 0 -100px;
+    }
+    </style>
+
+    <!-- Le fav and touch icons -->
+            <link rel="shortcut icon" href="/img/favicon.png" />
+
+    <!-- Bootstrap Core CSS -->
+            <link href="/css/bootstrap.min.css" rel="stylesheet" media="all">
+
+            <!-- Custom CSS -->
+            <!--link rel="stylesheet" href="/css/animsition.min.css"-->
 
 
-            .white-back {background: none !important;}
-            #marketing-carousel {
-                padding: 0 10px 30px 10px;
-                margin-top: 30px;
-                /* Control buttons  */
-                /* Previous button  */
-                /* Next button  */
-                /* Changes the position of the indicators */
-                /* Changes the color of the indicators */
-            }
-            #marketing-carousel .carousel-control {
-                background: none;
-                color: #CACACA;
-                font-size: 2.3em;
-                text-shadow: none;
-                margin-top: 220px;
-            }
-            #marketing-carousel .carousel-control.left {
-                left: 0 !important;
-            }
-            #marketing-carousel .carousel-control.right {
-                right: 0 !important;
-            }
-            #marketing-carousel .carousel-indicators {
-                right: 50%;
-                top: 0px;
-                bottom: auto;
-                margin-right: -19px;
-                position: relative;
-                min-height: 50px;
-                width: 100%;
-                margin-left: -50%;
-            }
-            #marketing-carousel .carousel-indicators li {
-                text-indent: 0;
-                /* width: 100px; */
+    <link href="/css/ekko-lightbox.css" rel="stylesheet">
+    <link href="/css/dark.css" rel="stylesheet">
 
-                text-align: center;
-                height: 45px;
-                padding-top: 10px;
-                background-color: transparent;
-                transition: all 0.4s;
-                margin: 0px;
-                border: 0px;
-                border-radius: 0px;
-                font-weight: 700;
-                font-family: "proxima-nova", sans-serif;
-                font-size: 21px;
-                color: #000;
-                margin-top: 10px;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-            #marketing-carousel .carousel-indicators li:hover,
-            #marketing-carousel .carousel-indicators li:focus {
-                color: #DB3747;
-            }
-            #marketing-carousel .carousel-indicators .active {
-                color: #DB3747;
-            }
-            #marketing-carousel .carousel-indicators li span {
-                padding-bottom: 4px;
-                border-bottom: 4px solid #fff;
-                border-radius: 0px;
-            }
-            #marketing-carousel .carousel-indicators li.active span {
-                border-bottom: 4px solid #DB3747;
-                border-radius: 0px;
-                color: #DB3747;
-            }
-            .carousel-inner {
-                position: relative;
-                margin-top: 30px;
-                width: 100%;
-                overflow: inherit;
-                min-height: 160px !important;
-            }
-            /*  .carousel-fade .carousel-inner .item {
-            opacity: 0;
-            -webkit-transition-property: opacity;
-            -moz-transition-property: opacity;
-            -o-transition-property: opacity;
-            transition-property: opacity;
-            transition-duration: 1s;
-        }
-            .carousel-fade .carousel-inner .active {
-            opacity: 1;
-        }
-            .carousel-fade .carousel-inner .active.left,
-            .carousel-fade .carousel-inner .active.right {
-            left: 0;
-            opacity: 0;
-            z-index: 1;
-        }
-            .carousel-fade .carousel-inner .next.left,
-            .carousel-fade .carousel-inner .prev.right {
-            opacity: 1;
-        }
-            .carousel-fade .carousel-control {
-            z-index: 2;
-        } */
+            <link href="/css/da.min.css" rel="stylesheet">
 
-            .item blockquote {
-                border-left: none;
-                margin: 0;
-            }
-            .infogr-krug {
-                background-color: #DB3747;
-                width: 300px !important;
-                height: 300px !important;
-                border-radius: 300px;
-                padding-top: 50px;
-            }
-            .infogr-text {
-                padding-top: 60px;
-                /*padding-left: 0px;
-                padding-right: 0px;*/
-            }
-            @media(max-width: 768px) {
-                .infogr-text {
-                    padding-top: 0px;
-                    text-align: center;
+            <!-- Custom Fonts -->
+
+            <script src="https://use.typekit.net/hqr6kui.js"></script>
+            <script>
+                try {
+                    Typekit.load({
+                        async: true
+                    });
+                } catch (e) {}
+            </script>
+
+            <link rel="stylesheet" href="/css/linea_basic.css">
+            <link rel="stylesheet" href="/css/animate.css">
+
+            <style>
+
+                 .intro {
+                    text-align: left !important;
+                    color: #34495E !important;
+                    background: url(/img/da_serv_back_fs.jpg) no-repeat bottom center scroll !important;
+                     background: none !important;
+                    -webkit-background-size: cover !important;
+                    -moz-background-size: cover !important;
+                    background-size: cover !important;
+                    -o-background-size: cover !important;
                 }
-                .infogr-krug {
-                    display: none;
+
+
+
+                .white-back {background: none !important;}
+                #marketing-carousel {
+                    padding: 0 10px 30px 10px;
+                    margin-top: 30px;
+                    /* Control buttons  */
+                    /* Previous button  */
+                    /* Next button  */
+                    /* Changes the position of the indicators */
+                    /* Changes the color of the indicators */
                 }
                 #marketing-carousel .carousel-control {
-                    margin-top: 100px;
+                    background: none;
+                    color: #CACACA;
+                    font-size: 2.3em;
+                    text-shadow: none;
+                    margin-top: 120px;
                 }
-            }
-           .spec-block {
-                cursor: pointer;
-            }
+                #marketing-carousel .carousel-control.left {
+                    left: 0 !important;
+                }
+                #marketing-carousel .carousel-control.right {
+                    right: 0 !important;
+                }
+                #marketing-carousel .carousel-indicators {
+                    right: 50%;
+                    top: 0px;
+                    bottom: auto;
+                    margin-right: -19px;
+                    position: relative;
+                    min-height: 50px;
+                    width: 100%;
+                    margin-left: -50%;
+                }
+                #marketing-carousel .carousel-indicators li {
+                    text-indent: 0;
+                    /* width: 100px; */
 
-            .spec-block h1:hover {
-                opacity: 0.75;
+                    text-align: center;
+                    height: 45px;
+                    padding-top: 10px;
+                    background-color: transparent;
+                    transition: all 0.4s;
+                    margin: 0px;
+                    border: 0px;
+                    border-radius: 0px;
+                    font-weight: 700;
+                    font-family: "proxima-nova", sans-serif;
+                    font-size: 21px;
+                    color: #000;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+                #marketing-carousel .carousel-indicators li:hover,
+                #marketing-carousel .carousel-indicators li:focus {
+                    color: #DB3747;
+                }
+                #marketing-carousel .carousel-indicators .active {
+                    color: #DB3747;
+                }
+                #marketing-carousel .carousel-indicators li span {
+                    padding-bottom: 4px;
+                    border-bottom: 4px solid #fff;
+                    border-radius: 0px;
+                }
+                #marketing-carousel .carousel-indicators li.active span {
+                    border-bottom: 4px solid #DB3747;
+                    border-radius: 0px;
+                    color: #DB3747;
+                }
+                .carousel-inner {
+                    position: relative;
+                    margin-top: 30px;
+                    width: 100%;
+                    overflow: inherit;
+                    min-height: 160px !important;
+                }
+                /*  .carousel-fade .carousel-inner .item {
+                opacity: 0;
+                -webkit-transition-property: opacity;
+                -moz-transition-property: opacity;
+                -o-transition-property: opacity;
+                transition-property: opacity;
+                transition-duration: 1s;
             }
-            .spec-krug {
-                background-color: #fff;
-                width: 100px;
-                height: 100px;
-                border-radius: 144px !important;
-                padding: 0px !important;
-                margin: 0px;
-                padding-top: 30px !important;
-                text-align: center !important;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 30px;
-                margin-bottom: 15px !important;
-                font-weight: 700 !important;
-                color: #34495E !important;
-                border: none !important;
-                font-size: 30px !important;
-                line-height: 0.9 !important;
-                 -moz-transition:0.3s;
-    -webkit-transition:0.3s;
-    transition:0.3s;
+                .carousel-fade .carousel-inner .active {
+                opacity: 1;
             }
-            .spec-krug:hover {
-                padding: 0px;
-                margin: 0px;
-                padding-top: 55px;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 30px;
+                .carousel-fade .carousel-inner .active.left,
+                .carousel-fade .carousel-inner .active.right {
+                left: 0;
+                opacity: 0;
+                z-index: 1;
+            }
+                .carousel-fade .carousel-inner .next.left,
+                .carousel-fade .carousel-inner .prev.right {
+                opacity: 1;
+            }
+                .carousel-fade .carousel-control {
+                z-index: 2;
+            } */
 
+                .item blockquote {
+                    border-left: none;
+                    margin: 0;
+                }
+                .infogr-krug {
+                    background-color: #DB3747;
+                    width: 300px !important;
+                    height: 300px !important;
+                    border-radius: 300px;
+                    padding-top: 50px;
+                }
+                .infogr-text {
+                    padding-top: 60px;
+                    /*padding-left: 0px;
+                    padding-right: 0px;*/
+                }
+                @media(max-width: 768px) {
+                    .infogr-text {
+                        padding-top: 0px;
+                        text-align: center;
+                    }
+                    .infogr-krug {
+                        display: none;
+                    }
+                    #marketing-carousel .carousel-control {
+                        margin-top: 100px;
+                    }
+                }
+                .spec-block {
+                    cursor: pointer;
+                }
+
+                .spec-block h1:hover {
+                    opacity: 0.75;
+                }
+                .spec-krug {
+                    background-color: #fff;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 144px !important;
+                    padding: 0px !important;
+                    margin: 0px;
+                    padding-top: 30px !important;
+                    text-align: center !important;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 30px;
+                    margin-bottom: 15px !important;
+                    font-weight: 700 !important;
+                    color: #34495E !important;
+                    border: none !important;
+                    font-size: 30px !important;
+                    line-height: 0.9 !important;
+                     -moz-transition:0.3s;
+        -webkit-transition:0.3s;
+        transition:0.3s;
+                }
+                .spec-krug:hover {
+                    padding: 0px;
+                    margin: 0px;
+                    padding-top: 55px;
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 30px;
+
+                    font-weight: 700;
+                    border: none;
+                    font-size: 30px;
+                    line-height: 0.9;
+                    background-color: #ffdd00 !important;
+                }
+                /*  .spec-krug h2 {
                 font-weight: 700;
-                border: none;
-                font-size: 30px;
-                line-height: 0.9;
-                background-color: #ffdd00 !important;
-            }
-
-            .icon {
+                margin-bottom: 0px;
                 color: #34495E;
-                font-size: 66px;
-                margin-bottom: 25px;
-            }
-        </style>
 
+            } */
 
+                .icon {
+                    color: #34495E;
+                    font-size: 66px;
+                    margin-bottom: 25px;
+                }
+            </style>
 
+  </head>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-        </head>
-
-
-    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-                <!-- Preloader -->
+              <!-- Preloader -->
 <div id="preloader">
-    <div id="status">&nbsp;</div>
+  <div id="status">&nbsp;</div>
 </div>
 
+     <!-- Navigation -->
+      <!-- Navigation -->
 
-        <!-- Start navigation -->
+      <!-- Dotnav -->
+      <!--div class="hidden-xs" data-spy="affix" id="dot-nav">
+<ul>
 
-        {% include /extras/da_navbar_new.mustache %}
+<li class="awesome-tooltip" title="Обучение">
+<a class="page-scroll" href="#learning"></a>
+</li>
+<li class="awesome-tooltip" title="Развитие">
+<a class="page-scroll" href="#marketing"></a>
+</li>
+<li class="awesome-tooltip" title="О нас">
+<a class="page-scroll" href="#team"></a>
+</li>
+</ul>
+</div-->
 
-        <!-- End navigation -->
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" style="margin-top:3px">
+                      <i class="fa fa-bars"></i>
 
-        <!--header class="intro hidden-xs">
-            <div class="intro-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4 col-md-offset-1">
-                            <h1 style="font-size: 48px;">Привлечение пациентов</h1>
-                            <p>Как гарантированно увеличить поток первичных пациентов?</p>
-                            <a href="#description" class="page-scroll btn btn-md da-red-btn" >
-                                Подробнее
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header-->
+                  </button>
 
+                  <!--a class="navbar-brand-1 page-scroll" href="#page-top">
+<img style="height:60px; margin-top: -7px;" src="/img/logo@2x_poa.png" class="img-responsive" />
 
-        <section id="description" class="text-center" style="padding-bottom:35px; text-center;">
-            <div class="container">
-                <img alt="" class="img-responsive" src="/img/da_new-pacients.png" style="max-width: 150px; margin-left: auto; margin-right: auto; margin-bottom: 25px;">
-                <h1 style="font-size: 48px;">Новые пациенты</h1>
-                 <div class="col-md-8 col-md-offset-2">
+</a-->
 
-                        <p class="text-left"  style="color: #000">Вы опытный стоматолог или руководитель клиники. Работаете уже несколько лет, и вокруг вашего бизнеса сложилось некоторое сообщество постоянных клиентов. Но чем дальше, тем больше вы понимаете, у вас лечатся одни и теже люди, а новых лиц вы не видите.<br><br>
-Самое время расширить аудиторию с помощью интернет-маркетинга. Это не означает, что “сарафанное радио” перестало для вас работать. Просто у него ограниченные возможности и есть определённые границы влияния. В современных условиях мало сделать сайт, нужно использовать его как инструмент привлечения и пользоваться другими возможностями интернет-коммуникаций.</p>
-                    </div>
 
 
-            </div>
+                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 
 
-        </section>
+                  <a class="navbar-brand-1 page-scroll hidden-xs hidden-sm hidden-md" href="/">
+                      <img style="height:60px; margin-top: -8px;" src="/img/logo@2x_da_new.png" class="img-responsive" />
 
+                  </a>
+                  <a class="navbar-brand page-scroll hidden-lg" href="/"></a>
 
+                  <!--p id="tel" class="text-center hidden-lg hidden-md hidden-sm" style="color: #000;"><!--i class="fa fa-phone fa-fw" style="color:#CA2438;"></i-->&nbsp;
 
+          </p-->
 
-<section id="config" class="text-center" style="text-center; background-color:#f1f1f1">
-            <div class="container">
-                <h1>Как привлечь первичных пациентов:</h1>
 
+                  <!-- Переключатель участий мелкий-->
 
 
 
-                <div class="row">
+              </div>
 
 
-                    <div class="col-md-4 text-center spec-block">
-                         <a href="/services/seo">
-                        <div class="spec-krug">
-                            <div class="icon icon-basic-magnifier-plus" style="color:#000;  font-size: 45px;"></div>
-                        </div>
-                        <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Поисковое <br>продвижение</h1>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div id="mob-menu" class="navbar-cool side-collapse in" style="background-color: #fff;opacity: 0.95;">
+                  <div class="navbar-left">
+                      <ul class="nav navbar-nav">
+                          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                          <li class="hidden">
+                              <a href="#page-top"></a>
+                          </li>
+                          <li id="tel" class="hidden-xs">
+              <!--span style="color: #000;">&nbsp;{module_contentholder,name="phone"}
+              </span-->
+          </li>
+                          <li class="hidden-xs hidden-sm" style="padding-top: 9px;margin-left: 20px;">
 
-                        <p class="text-center" style="margin-bottom: 20px; color: #333;">
-                            90% пользователей ищут услуги в интернете. Необходимо помочь пациентам найти вас на первых строчках поисковой выдачи.
-                        </p>
 
-                    <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
-                                </a>
+              <div class="fb-like" data-href="https://www.facebook.com/dentalagency.ru/" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="true"></div>
 
-                    </div>
+          </li>
+                          <!-- Переключатель участий большой-->
 
-                    <div class="col-md-4 text-center spec-block">
-                         <a href="/services/soc">
-                        <div class="spec-krug">
-                            <div class="icon icon-basic-share" style="color:#000;  font-size: 45px;"></div>
-                        </div>
-                        <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Продвижение <br>в&nbsp;соц.&nbsp;сетях</h1>
 
-                        <p class="text-center" style="margin-bottom: 20px; color: #333;">
-                            В соц. сетях много пациентов и их друзей. VK, Facebook и Instagram – отличные площадки для продвижения услуг.
-                        </p>
 
-                    <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
-                                </a>
+                      </ul>
 
-                    </div>
-                    <div class="col-md-4 text-center spec-block">
-                        <a href="/services/direct">
-                        <div class="spec-krug">
-                            <div class="icon icon-basic-signs" style="color:#000;  font-size: 45px;"></div>
-                        </div>
-                        <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Контекстная <br>реклама</h1>
+                  </div>
 
-                        <p class="text-center" style="margin-bottom: 20px; color: #333;">
-                            Рекламные кампании в Яндекс-Директ и Google Adwords, дают гарантированный результат за короткий период времени.
-                        </p>
+                  <div class="navbar-right" id="nav-nav-id">
 
-                    <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
-                                </a>
+                      <ul class="nav navbar-nav navbar-right">
 
-                    </div>
 
+                          <li>
+                              <a class="page-scroll" href="#services">Услуги</a>
+                          </li>
+                          <li>
+                              <a class="page-scroll" href="#solutions">Решения</a>
+                          </li>
 
-                </div>
+                          <li>
+                              <a class="page-scroll" href="#description">О нас</a>
+                          </li>
 
+                          <!--li>
+                              <a class="page-scroll" href="#team">Контакты</a>
+                          </li-->
 
-            </div>
 
 
-        </section>
+                          <li>
+                              <a data-toggle="modal" data-target="#modalcontact" href="#modalcontact" class="btn btn-lg da-yellow-btn page-scroll" style="margin-left: 10px !important; margin-right: 10px !important; margin-bottom: 0px; font-weight: 700; font-size: 16px;">
+                                  Связаться
+                              </a>
 
+                          </li>
 
+                          <!--li><a href="/contacts">Контакты</a></li-->
 
+                          <div class="hidden-lg hidden-md hidden-sm text-center">
+                              <!--p style=" font-size: 18px; color: #7F8C9B !important; font-family: 'proxima-nova' !important; font-weight: 600; padding: 20px; text-align: center; width: 280px !important; margin-bottom: 0px; margin-left: auto; margin-right: auto;     margin-top: 25px;"><i class="fa fa-phone fa-fw" style="color:#7F8C9B;"></i>&nbsp;{module_contentholder,name="phone"}</p-->
+                          </div>
+                          <div class="hidden-lg hidden-md hidden-sm text-center">
 
-        <section id="config" class="text-center" style="padding-bottom:15px; text-center; background-color:#ffdd00;">
-            <div class="container">
+                              <ul class="list-inline" style="inline-flex">
+                                  <li>
+                                      <a href="https://www.facebook.com/dentalagency.ru/?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-facebook"></i></a>
+                                  </li>
+                                  <li>
+                                      <a href="https://www.instagram.com/dentalagency/?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-instagram"></i></a>
+                                  </li>
+                                  <li>
+                                      <a href="https://www.youtube.com/channel/UCv9NJqHpCLuhSnQOeDdJ75Q?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-youtube"></i></a>
+                                  </li>
 
+                              </ul>
+                          </div>
+                      </ul>
+                  </div>
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+      </nav>
+      <!-- End navigation -->
 
 
-                <div class="row">
+      <section id="description" class="text-center" style="padding-bottom:35px; text-center;">
+          <div class="container">
+              <img alt="" class="img-responsive" src="/img/da_new-pacients.png" style="max-width: 150px; margin-left: auto; margin-right: auto; margin-bottom: 25px;">
+              <h1 style="font-size: 48px;">Новые пациенты</h1>
+               <div class="col-md-8 col-md-offset-2">
 
+                      <p class="text-left"  style="color: #000">Вы опытный стоматолог или руководитель клиники. Работаете уже несколько лет, и вокруг вашего бизнеса сложилось некоторое сообщество постоянных клиентов. Но чем дальше, тем больше вы понимаете, у вас лечатся одни и теже люди, а новых лиц вы не видите.<br><br>
+    Самое время расширить аудиторию с помощью интернет-маркетинга. Это не означает, что “сарафанное радио” перестало для вас работать. Просто у него ограниченные возможности и есть определённые границы влияния. В современных условиях мало сделать сайт, нужно использовать его как инструмент привлечения и пользоваться другими возможностями интернет-коммуникаций.</p>
+                  </div>
 
-                    <div class="col-md-8 col-md-offset-2 text-center" style="margin-bottom: 40px; color:#333;">
 
-                        <h1>Привлекайте первичных пациентов от&nbsp;16&nbsp;000&nbsp;руб/мес</h1>
+          </div>
 
 
+      </section>
 
 
 
 
+    <section id="config" class="text-center" style="text-center; background-color:#f1f1f1">
+          <div class="container">
+              <h1>Как привлечь первичных пациентов:</h1>
 
 
 
-                        <a data-toggle="modal" data-target="#modalcontact" href="#modalcontact" class="btn btn-lg da-red-btn" style="margin-left: 10px !important; margin-right: 10px !important; margin-bottom: 0px; font-weight: 700; font-size: 16px;">
-                            Начать сейчас
-                                </a>
 
+              <div class="row">
 
-                    </div>
 
+                  <div class="col-md-4 text-center spec-block">
+                       <a href="/services/seo">
+                      <div class="spec-krug">
+                          <div class="icon icon-basic-magnifier-plus" style="color:#000;  font-size: 45px;"></div>
+                      </div>
+                      <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Поисковое <br>продвижение</h1>
 
-                </div>
+                      <p class="text-center" style="margin-bottom: 20px; color: #333;">
+                          90% пользователей ищут услуги в интернете. Необходимо помочь пациентам найти вас на первых строчках поисковой выдачи.
+                      </p>
 
+                  <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
+                              </a>
 
+                  </div>
 
+                  <div class="col-md-4 text-center spec-block">
+                       <a href="/services/soc">
+                      <div class="spec-krug">
+                          <div class="icon icon-basic-share" style="color:#000;  font-size: 45px;"></div>
+                      </div>
+                      <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Продвижение <br>в&nbsp;соц.&nbsp;сетях</h1>
 
-            </div>
+                      <p class="text-center" style="margin-bottom: 20px; color: #333;">
+                          В соц. сетях много пациентов и их друзей. VK, Facebook и Instagram – отличные площадки для продвижения услуг.
+                      </p>
 
+                  <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
+                              </a>
 
-        </section>
+                  </div>
+                  <div class="col-md-4 text-center spec-block">
+                      <a href="/services/direct">
+                      <div class="spec-krug">
+                          <div class="icon icon-basic-signs" style="color:#000;  font-size: 45px;"></div>
+                      </div>
+                      <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Контекстная <br>реклама</h1>
 
+                      <p class="text-center" style="margin-bottom: 20px; color: #333;">
+                          Рекламные кампании в Яндекс-Директ и Google Adwords, дают гарантированный результат за короткий период времени.
+                      </p>
 
-        <section id="other" class="text-center" style="padding-bottom:35px; text-center; background-color:#f1f1f1">
-            <div class="container">
+                  <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
+                              </a>
 
+                  </div>
 
 
+              </div>
 
 
+          </div>
 
 
-                <a href="/#solutions">
-                    <h1 style="font-weight: 700; font-size: 18px;"> ← Другие решения</h1>
-                                </a>
+      </section>
 
 
-            </div>
 
 
-        </section>
+      <section id="config" class="text-center" style="padding-bottom:15px; text-center; background-color:#ffdd00;">
+          <div class="container">
 
 
-        <div class="modal text-center fade" tabindex="-1" role="dialog" aria-labelledby="modalcontact" aria-hidden="true" id="modalcontact" style="background-color: #fff;">
-                    <div class="col-md-6 col-md-offset-3">
-                        <br>
-                        <div class="modal-header">
-                            <button class="close" data-dismiss="modal">×</button>
-                            <h2><b>Обратная связь</b></h2>
-                        </div>
-                        <div class="modal-body">
 
+              <div class="row">
 
-                            <br>
-                            <br>
-                            <p>Свяжитесь с нами <!-- по телефону <b>{module_contentholder,name="phone"}</b> или -->через форму связи, чтобы уточнить информацию или решить любой возникший
-                                вопрос.
-                            </p>
 
+                  <div class="col-md-8 col-md-offset-2 text-center" style="margin-bottom: 40px; color:#333;">
 
+                      <h1>Привлекайте первичных пациентов от&nbsp;16&nbsp;000&nbsp;руб/мес</h1>
 
-                            <!-- BEGIN Podio web form -->
-                            <script src="https://podio.com/webforms/14142468/949179.js"></script>
-                            <script type="text/javascript">
-                                _podioWebForm.render("949179")
-                            </script>
-                            <noscript>
-                                <a href="https://podio.com/webforms/14142468/949179" target="_blank">Пожалуйста, заполните форму</a>
-                            </noscript>
 
-                            <!-- END Podio web form -->
 
 
 
 
 
-                        </div>
-                        <div class="modal-footer">
-                            <a class="btn close" data-dismiss="modal">Закрыть</a>
 
-                        </div>
-                    </div>
-                </div>
 
+                      <a data-toggle="modal" data-target="#modalcontact" href="#modalcontact" class="btn btn-lg da-red-btn" style="margin-left: 10px !important; margin-right: 10px !important; margin-bottom: 0px; font-weight: 700; font-size: 16px;">
+                          Начать сейчас
+                              </a>
 
 
+                  </div>
 
 
-        <!-- Footer -->
+              </div>
 
-        <footer id="footer" style="background-color: #fff">
-                    <div class="container">
 
 
-                        <div class="col-md-8 col-md-offset-2 text-center">
 
-                            <h3>Остались вопросы?</h3>
-                            <p>Позвоните нам: <b>{module_contentholder,name="phone"}</b> или напишите на <a href="mailto:hello@dentalagency.ru" target="_top">hello@dentalagency.ru</a>,
-                                чтобы уточнить необходимую информацию.</p>
+          </div>
 
-                            <hr style="width: 60%; margin-left: auto; margin-right: auto;">
 
+      </section>
 
-                            <!--a class="page-scroll" href="http://www.dentalagency.ru/">
-                                <img style="height: 32px; margin-left: auto; margin-right: auto;opacity: 0.6;" src="/img/logo@2x_da_new_simle.png" class="img-responsive">
 
-                            </a-->
+      <section id="other" class="text-center" style="padding-bottom:35px; text-center; background-color:#f1f1f1">
+          <div class="container">
 
-                            <ul class="list-inline text-center" style="margin-top: -8px;">
-                                <li>
-                                    <a href="https://www.facebook.com/dentalagency.ru/?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/stom_seminar/?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-instagram"></i></a>
-                                </li>
-                                <!--li>
-                                    <a href="https://www.youtube.com/channel/UCv9NJqHpCLuhSnQOeDdJ75Q?ref={module_pageaddress}" class="btn-social btn-outline" target="blank"><i class="fa fa-fw fa-youtube"></i></a>
-                                </li-->
 
-                            </ul>
-                            <!--p class="copyright text-center" style="
-        font-family: &quot;proxima-nova&quot;,sans-serif;
-        font-size: 14px;
-        color: #202633;
-        "> © 2015-2016, Dental Agency.</p-->
-                            <!--span class="text-center" style="
-        font-family: &quot;proxima-nova&quot;,sans-serif; color: #999; font-size:16px; font-weight:500;">made at&nbsp;<a style="color: #000; font-weight:700;" href="http://responsivelab.ru/" target="blank">Responsive Lab</a></span-->
-                        </div>
 
 
 
 
-                    </div>
-                </footer>
 
-        <!-- Footer Scripts -->
+              <a href="/#solutions">
+                  <h1 style="font-weight: 700; font-size: 18px;"> ← Другие решения</h1>
+                              </a>
 
 
-        <!-- Стили -->
-        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-               <link rel="stylesheet" href="/fonts/icomoon_video/style.css">
-        <link rel="stylesheet" href="/css/pongstagr.am.css">
+          </div>
 
 
+      </section>
 
 
-                    <!-- Крутим страницу -->
-        <script>
-            $(document).ready(function() {
-                window.scrollTo(0, 0);
-            });
-        </script>
+      <div class="modal text-center fade" tabindex="-1" role="dialog" aria-labelledby="modalcontact" aria-hidden="true" id="modalcontact" style="background-color: #fff;">
+                  <div class="col-md-6 col-md-offset-3">
+                      <br>
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">×</button>
+                          <h2><b>Обратная связь</b></h2>
+                      </div>
+                      <div class="modal-body">
 
 
+                          <br>
+                          <br>
+                          <p>Свяжитесь с нами <!-- по телефону <b>{module_contentholder,name="phone"}</b> или -->через форму связи, чтобы уточнить информацию или решить любой возникший
+                              вопрос.
+                          </p>
 
 
 
-                <!-- Plugin JavaScript -->
-                <script src="/js/jquery.easing.min.js"></script>
+                          <!-- BEGIN Podio web form -->
+                          <script src="https://podio.com/webforms/14142468/949179.js"></script>
+                          <script type="text/javascript">
+                              _podioWebForm.render("949179")
+                          </script>
+                          <noscript>
+                              <a href="https://podio.com/webforms/14142468/949179" target="_blank">Пожалуйста, заполните форму</a>
+                          </noscript>
 
+                          <!-- END Podio web form -->
 
-                <!-- Bootstrap Core JavaScript -->
-                <script src="/js/bootstrap.min.js"></script>
 
 
 
-                <!-- Custom Theme JavaScript -->
-                <script src="/js/da.js"></script>
 
-        <script src="/js/ekko-lightbox.js"></script>
-                <script type="text/javascript">
-            $(document).ready(function($) {
+                      </div>
+                      <div class="modal-footer">
+                          <a class="btn close" data-dismiss="modal">Закрыть</a>
 
-                // delegate calls to data-toggle="lightbox"
-                $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-                    event.preventDefault();
-                    return $(this).ekkoLightbox({
-                        always_show_close: true
-                    });
-                });
+                      </div>
+                  </div>
+              </div>
 
-            });
-        </script>
 
-        <!-- Навигация -->
-                <script>
-                    $(document).ready(function() {
-                        var sideslider = $('[data-toggle=collapse-side]');
-                        var sel = sideslider.attr('data-target');
-                        var sel2 = sideslider.attr('data-target-2');
-                        sideslider.click(function(event) {
-                            $(sel).toggleClass('in');
-                            $(sel2).toggleClass('out');
-                        });
-                    });
-                </script>
-        <script>
-        $(document).ready(function () {
-            var sideslider = $('[data-toggle=collapse-side]');
-                        var sel = sideslider.attr('data-target');
-                        var sel2 = sideslider.attr('data-target-2');
-                $(".navbar-nav li a").click(function(event) {
-                  $(sel).toggleClass('in');
-                            $(sel2).toggleClass('out');
-                });
-              });
 
-        </script>
+{% include Footer.mustache %}
 
+{% include FooterScripts.mustache %}
 
-                <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-                <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
-                <div id="fb-root"></div>
-                <script>
-                    (function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=275910782435282";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
 
-        <script type="text/javascript">
-        	var trackcmp_email = '';
-        	var trackcmp = document.createElement("script");
-        	trackcmp.async = true;
-        	trackcmp.type = 'text/javascript';
-        	trackcmp.src = '//trackcmp.net/visit?actid=475079017&e='+encodeURIComponent(trackcmp_email)+'&r='+encodeURIComponent(document.referrer)+'&u='+encodeURIComponent(window.location.href);
-        	var trackcmp_s = document.getElementsByTagName("script");
-        	if (trackcmp_s.length) {
-        		trackcmp_s[0].parentNode.appendChild(trackcmp);
-        	} else {
-        		var trackcmp_h = document.getElementsByTagName("head");
-        		trackcmp_h.length && trackcmp_h[0].appendChild(trackcmp);
-        	}
-        </script>
 
 
 
-
-                <!-- Yandex.Metrika counter -->
-        <script type="text/javascript">
-            (function (d, w, c) {
-                (w[c] = w[c] || []).push(function() {
-                    try {
-                        w.yaCounter33465513 = new Ya.Metrika({
-                            id:33465513,
-                            clickmap:true,
-                            trackLinks:true,
-                            accurateTrackBounce:true,
-                            webvisor:true,
-                            trackHash:true
-                        });
-                    } catch(e) { }
-                });
-
-                var n = d.getElementsByTagName("script")[0],
-                    s = d.createElement("script"),
-                    f = function () { n.parentNode.insertBefore(s, n); };
-                s.type = "text/javascript";
-                s.async = true;
-                s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-                if (w.opera == "[object Opera]") {
-                    d.addEventListener("DOMContentLoaded", f, false);
-                } else { f(); }
-            })(document, window, "yandex_metrika_callbacks");
-        </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/33465513" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-
-
-
-
-        <!--script>
-            document.getElementById("reg").onclick = function() {
-            woopra.track("clickreg", {
-                email: "{module_url,email}"
-
-            });
-        };
-        </script-->
-
-
-
-
-        <script>
-            //jQuery to collapse the navbar on scroll
-            $(window).scroll(function() {
-                if ($(".navbar").offset().top > 50) {
-                    $(".navbar-custom").addClass("top-nav-collapse");
-                } else {
-                    $(".navbar-custom").removeClass("top-nav-collapse");
-                }
-            });
-        </script>
-
-
-
-
-
-
-    </body>
-
+  </body>
 </html>
